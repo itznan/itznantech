@@ -11,11 +11,11 @@
 <body>
 
 <nav class="topbar">
-  <a class="home" href="#top">~/itznan</a>
+  <a class="home active" href="index.html">~/itznan</a>
   <ul>
-    <li><a href="#about">about</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#stack">stack</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="projects.html">projects</a></li>
+    <li><a href="about.html#stack">stack</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
@@ -32,8 +32,9 @@
   </div>
 
   <div class="cta-row">
-    <a class="btn primary" href="https://github.com/itznan" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn" href="#contact">Contact</a>
+    <a class="btn primary" href="projects.html">Projects →</a>
+    <a class="btn" href="about.html">About</a>
+    <a class="btn" href="https://github.com/itznan" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
 </header>
 
@@ -43,12 +44,15 @@
   <p class="lede">
     Systems-focused builder leveraging AI workflows to engineer high-performance native software, low-level Windows utilities, GPU acceleration pipelines, and automation tools.
   </p>
+  <div style="margin-top: 1.25rem;">
+    <a class="btn" href="about.html">More about me &amp; tech stack →</a>
+  </div>
 </section>
 
 <section id="projects" class="wide">
   <span class="path">~/projects</span>
-  <h2>Repositories</h2>
-  <p class="lede" style="margin-bottom: 1.25rem;">Everything public, newest first.</p>
+  <h2>Featured Repositories</h2>
+  <p class="lede" style="margin-bottom: 1.25rem;">Selected systems, tooling &amp; native Windows projects.</p>
 
   <div class="repo-list">
     <div class="repo-row">
@@ -71,66 +75,13 @@
       <span class="repo-lang">Go</span>
       <p class="repo-note">Pure Go zero-dependency deep learning engine, 13-channel spatial difference manifold calculus &amp; high-performance CPU runtime. <a href="https://github.com/itznan/diagonalnet" target="_blank" rel="noopener">→ repo</a></p>
     </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/pankha" target="_blank" rel="noopener">pankha</a>
-      <span class="repo-lang">C# / Rust</span>
-      <p class="repo-note">Unified hardware fan control and telemetry application for 64-bit Windows, consolidating disparate cooling channels into a low-latency interface. <a href="https://github.com/itznan/pankha" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/agy-discord-presence" target="_blank" rel="noopener">agy-discord-presence</a>
-      <span class="repo-lang">JavaScript</span>
-      <p class="repo-note">Discord Rich Presence integration and background sidecar hook for the Antigravity CLI. <a href="https://github.com/itznan/agy-discord-presence" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/EverythingMoeAPI" target="_blank" rel="noopener">EverythingMoeAPI</a>
-      <span class="repo-lang">Python</span>
-      <p class="repo-note">Unofficial high-performance FastAPI REST API and Python scraper for everythingmoe.com. <a href="https://github.com/itznan/EverythingMoeAPI" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/agy-codechef-solver" target="_blank" rel="noopener">agy-codechef-solver</a>
-      <span class="repo-lang">Python</span>
-      <p class="repo-note">Modular automation toolkit for scanning CodeChef practice tracks, solving curriculum tracks, and verifying judge evaluations. <a href="https://github.com/itznan/agy-codechef-solver" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/pocket-mc-windows" target="_blank" rel="noopener">pocket-mc-windows</a>
-      <span class="repo-lang">C#</span>
-      <p class="repo-note">Windows desktop application to locally host and manage Minecraft Java and Bedrock Edition servers without hassle. <a href="https://github.com/itznan/pocket-mc-windows" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/pocket-mc-website" target="_blank" rel="noopener">pocket-mc-website</a>
-      <span class="repo-lang">TypeScript</span>
-      <p class="repo-note">Landing page and web frontend for the PocketMC ecosystem, built with React, TypeScript, and Tailwind CSS. <a href="https://pocketmc.github.io/pocket-mc-website/" target="_blank" rel="noopener">→ live</a> · <a href="https://github.com/itznan/pocket-mc-website" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
-    <div class="repo-row">
-      <a class="repo-name" href="https://github.com/itznan/YouTubeDiscordPresence" target="_blank" rel="noopener">YouTubeDiscordPresence</a>
-      <span class="repo-lang">JavaScript</span>
-      <p class="repo-note">Browser extension streaming active YouTube media playback directly to Discord Rich Presence. <a href="https://github.com/itznan/YouTubeDiscordPresence" target="_blank" rel="noopener">→ repo</a></p>
-    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem; text-align: center;">
+    <a class="btn primary" href="projects.html">View all 11 repositories →</a>
   </div>
 </section>
 
-<section id="stack">
-  <span class="path">~/stack</span>
-  <h2>Tools of the trade</h2>
-  <div class="stack-groups">
-    <div class="stack-group">
-      <div class="glabel">Languages</div>
-      <div class="stack-chips">
-        <span class="chip">Rust</span><span class="chip">Go</span><span class="chip">Python</span>
-        <span class="chip">C#</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span>
-        <span class="chip">SQL</span>
-      </div>
-    </div>
-    <div class="stack-group">
-      <div class="glabel">Systems, Frameworks &amp; APIs</div>
-      <div class="stack-chips">
-        <span class="chip">Win32 / Windows API</span><span class="chip">WASAPI</span><span class="chip">ADB</span>
-        <span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Tailwind CSS</span>
-        <span class="chip">Node.js</span><span class="chip">GPU &amp; Shaders</span><span class="chip">HID / Hardware I/O</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="contact">
   <span class="path">~/contact</span>
