@@ -79,11 +79,13 @@ nav.topbar .home { color: var(--accent); text-decoration: none; white-space: now
 nav.topbar ul { list-style: none; display: flex; gap: clamp(0.9rem, 2vw, 1.5rem); margin: 0; padding: 0; flex-wrap: wrap; }
 nav.topbar a { text-decoration: none; color: var(--ink-soft); position: relative; padding-bottom: 2px; }
 nav.topbar a:hover { color: var(--ink); }
+nav.topbar a.active { color: var(--ink); font-weight: 600; }
 nav.topbar a::after {
   content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px;
   background: var(--accent); transition: right 0.18s ease;
 }
-nav.topbar a:hover::after { right: 0; }
+nav.topbar a:hover::after,
+nav.topbar a.active::after { right: 0; }
 
 /* ---------- hero ---------- */
 header.hero {
@@ -151,6 +153,7 @@ h1.name { font-size: clamp(2.4rem, 4vw + 1rem, 3.75rem); line-height: 1.05; lett
 /* ---------- sections ---------- */
 section { max-width: var(--container); margin: 0 auto; padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem); border-top: 1px solid var(--rule); }
 section.wide { max-width: var(--container-wide); }
+section.first-section { border-top: none; }
 section > .path { display: block; margin-bottom: 0.6rem; }
 section h2 { font-size: clamp(1.4rem, 1vw + 1.1rem, 1.75rem); margin-bottom: 1.1rem; }
 section > p.lede { color: var(--ink-soft); max-width: 62ch; }
