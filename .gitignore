@@ -1,0 +1,11 @@
+# Dependencies & Agent artifacts
+.agents/
+skills-lock.json
+node_modules/
+
+# OS and Temp files
+*.jpg
+*.jpeg
+*.png
+.DS_Store
+Thumbs.db
