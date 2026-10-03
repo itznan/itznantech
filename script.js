@@ -85,9 +85,10 @@
     var currentId = '';
 
     sections.forEach(function (sec) {
-      var top = sec.offsetTop;
+      var rect = sec.getBoundingClientRect();
+      var top = rect.top + (window.pageYOffset || document.documentElement.scrollTop);
       var height = sec.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
+      if (scrollPos >= top - 20 && scrollPos < top + height) {
         currentId = sec.getAttribute('id');
       }
     });
@@ -103,27 +104,6 @@
 
   window.addEventListener('scroll', updateActiveSection, { passive: true });
   updateActiveSection();
-
-  // Scroll reveal animations on scroll
-  var isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!isReduced && 'IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      rootMargin: '0px 0px -40px 0px',
-      threshold: 0.08
-    });
-
-    document.querySelectorAll('section').forEach(function (sec) {
-      sec.classList.add('scroll-reveal');
-      revealObserver.observe(sec);
-    });
-  }
 
   // Copy-to-clipboard handler
   document.querySelectorAll('[data-copy]').forEach(function (btn) {

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itznan</title>
+<script>
+  (function() {
+    var p = window.location.pathname.replace(/^\/|\/$/g, '').replace(/\.html$/, '');
+    if (p === 'about' || p === 'projects' || p === 'stack' || p === 'contact') {
+      window.location.replace('/#' + p);
+    } else {
+      window.location.replace('/');
+    }
+  })();
+</script>
+</head>
+<body style="background:#0A0C0E;color:#e8edf0;font-family:sans-serif;padding:2rem;">
+  <p>Redirecting to <a href="/" style="color:#6d94a8;">itznan.tech</a>...</p>
+</body>
+</html>
