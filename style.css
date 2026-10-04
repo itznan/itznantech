@@ -39,6 +39,23 @@
   --ease-bounce-strong: cubic-bezier(0.34, 3.85, 0.64, 1);
 }
 
+/* ── Anime Monochrome Wallpaper Theme ── */
+body.wallpaper-active,
+html[data-theme="anime-wallpaper"] body {
+  --bg: #060709;
+  --bg-raised: rgba(18, 20, 26, 0.78);
+  --bg-subtle: rgba(26, 30, 38, 0.65);
+  --ink: #f8fafc;
+  --ink-soft: #c8d0da;
+  --ink-faint: #758090;
+  --rule: rgba(255, 255, 255, 0.14);
+  --rule-light: rgba(255, 255, 255, 0.28);
+  --accent: #ffffff;
+  --accent-base: #cbd5e1;
+  --accent-ink: #060709;
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.9);
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -54,6 +71,8 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--duration-medium) var(--ease-smooth-out),
+              color var(--duration-medium) var(--ease-smooth-out);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -449,5 +468,173 @@ footer {
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+/* ---------- wallpaper background layer ---------- */
+.wallpaper-bg {
+  position: fixed;
+  inset: -35px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity var(--duration-slow) var(--ease-smooth-out),
+              visibility var(--duration-slow) var(--ease-smooth-out);
+}
+
+body.wallpaper-active .wallpaper-bg,
+html[data-theme="anime-wallpaper"] .wallpaper-bg {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wallpaper-img {
+  position: absolute;
+  inset: 0;
+  background-image: url("background/87146-755552-animegif.gif");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(8px) brightness(0.66) contrast(1.1);
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.wallpaper-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(6, 7, 9, 0.42) 0%, rgba(4, 5, 7, 0.84) 100%),
+    linear-gradient(to bottom, rgba(6, 7, 9, 0.3) 0%, rgba(4, 5, 7, 0.75) 100%);
+}
+
+/* Glassmorphism enhancements when wallpaper theme is active */
+body.wallpaper-active .terminal,
+html[data-theme="anime-wallpaper"] .terminal {
+  background: rgba(16, 20, 26, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75);
+}
+
+body.wallpaper-active .terminal:hover,
+html[data-theme="anime-wallpaper"] .terminal:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+body.wallpaper-active .repo-list,
+html[data-theme="anime-wallpaper"] .repo-list {
+  background: rgba(14, 18, 24, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: var(--rule);
+}
+
+body.wallpaper-active .repo-row:hover,
+html[data-theme="anime-wallpaper"] .repo-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.wallpaper-active .chip,
+html[data-theme="anime-wallpaper"] .chip {
+  background: rgba(18, 22, 28, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: var(--rule);
+}
+
+body.wallpaper-active .chip:hover,
+html[data-theme="anime-wallpaper"] .chip:hover {
+  background: rgba(32, 38, 48, 0.9);
+  border-color: var(--accent);
+}
+
+body.wallpaper-active .contact-block,
+html[data-theme="anime-wallpaper"] .contact-block {
+  background: rgba(16, 20, 26, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: var(--rule);
+}
+
+body.wallpaper-active nav.topbar,
+html[data-theme="anime-wallpaper"] nav.topbar {
+  background: rgba(7, 9, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--rule);
+}
+
+/* ---------- wallpaper toggle buttons ---------- */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  flex-wrap: wrap;
+}
+
+.wallpaper-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--duration-quick) var(--ease-smooth-out);
+}
+
+.wallpaper-toggle:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.wallpaper-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+}
+
+.wallpaper-toggle .wp-icon {
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform var(--duration-fast) var(--ease-smooth-out), color var(--duration-quick) var(--ease-smooth-out);
+}
+
+.wallpaper-toggle.active .wp-icon {
+  color: var(--accent-ink);
+  transform: rotate(90deg) scale(1.15);
+}
+
+.wallpaper-toggle .wp-status {
+  font-weight: 600;
+}
+
+
+.wallpaper-float {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .wallpaper-float {
+    display: inline-flex;
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 99;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
   }
 }
