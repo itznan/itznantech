@@ -158,13 +158,13 @@
     });
   }
 
-  // Restore state from localStorage or attribute
+  // Restore state from localStorage (defaults to ON)
   var savedState = null;
   try {
     savedState = localStorage.getItem(STORAGE_KEY);
   } catch (e) {}
 
-  var isInitialEnabled = savedState === 'enabled' || document.documentElement.getAttribute('data-theme') === 'anime-wallpaper';
+  var isInitialEnabled = savedState !== 'disabled';
   setWallpaperState(isInitialEnabled);
 
   wallpaperToggles.forEach(function (btn) {
